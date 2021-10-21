@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class MenuTable extends Migration
+class DishesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class MenuTable extends Migration
     public function up()
     {
         //
-        Schema::create('Menu', function (Blueprint $table) {
+        Schema::create('dishes', function (Blueprint $table) {
             $table->id();
             $table->string('platilloTitulo', 100);
             $table->string('platilloImagen', 20);

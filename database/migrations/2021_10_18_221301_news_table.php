@@ -13,7 +13,7 @@ class NewsTable extends Migration
      */
     public function up()
     {
-        Schema::create('News', function (Blueprint $table) {
+        Schema::create('news', function (Blueprint $table) {
             $table->id();
             $table->string('noticiaTitulo', 100);
             $table->string('noticiaTexto', 500);
@@ -30,5 +30,6 @@ class NewsTable extends Migration
     public function down()
     {
         //
+        Schema::dropIfExists('news');
     }
 }

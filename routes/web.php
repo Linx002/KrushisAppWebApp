@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\NewsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,12 +14,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/hola', function () {
+*/
+
+Route::get('/', function () {
     return view('pagina');
 });
+Route::get('/contact', function () {
+    return view('contact');
+});
+
+//News CRUD
+Route::resource('news', NewsController::class);
+//Menu CRUD
+Route::resource('dish', App\Http\Controllers\DishController::class);
 
 Auth::routes();
 

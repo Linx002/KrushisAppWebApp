@@ -14,7 +14,7 @@ class BuzonTable extends Migration
     public function up()
     {
         //
-        Schema::create('Buzon', function (Blueprint $table) {
+        Schema::create('buzon', function (Blueprint $table) {
             $table->id();
             $table->string('razonBuzon', 50);
         });
@@ -27,6 +27,7 @@ class BuzonTable extends Migration
      */
     public function down()
     {
+        Schema::dropIfExists('buzon');
         //
     }
 }
