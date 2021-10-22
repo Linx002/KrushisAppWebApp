@@ -14,12 +14,12 @@
                             <span class="card-title">Show Dish</span>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('dishes.index') }}"> Back</a>
+                            <a class="btn btn-primary" href="{{ route('dish.index') }}"> Back</a>
                         </div>
                     </div>
 
                     <div class="card-body">
-                        
+
                         <div class="form-group">
                             <strong>Platillotitulo:</strong>
                             {{ $dish->platilloTitulo }}

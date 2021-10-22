@@ -47,7 +47,7 @@ class DishController extends Controller
 
         $dish = Dish::create($request->all());
 
-        return redirect()->route('dishes.index')
+        return redirect()->route('dish.index')
             ->with('success', 'Dish created successfully.');
     }
 
@@ -90,7 +90,7 @@ class DishController extends Controller
 
         $dish->update($request->all());
 
-        return redirect()->route('dishes.index')
+        return redirect()->route('dish.index')
             ->with('success', 'Dish updated successfully');
     }
 
@@ -103,7 +103,7 @@ class DishController extends Controller
     {
         $dish = Dish::find($id)->delete();
 
-        return redirect()->route('dishes.index')
+        return redirect()->route('dish.index')
             ->with('success', 'Dish deleted successfully');
     }
 }

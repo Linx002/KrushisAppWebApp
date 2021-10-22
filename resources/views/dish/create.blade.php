@@ -16,7 +16,7 @@
                         <span class="card-title">Create Dish</span>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('dishes.store') }}"  role="form" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('dish.store') }}" role="form" enctype="multipart/form-data">
                             @csrf
 
                             @include('dish.form')
