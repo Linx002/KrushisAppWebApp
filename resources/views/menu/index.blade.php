@@ -55,7 +55,7 @@
                                             <td>{{ $menu->platilloTitulo }}</td>
                                             <td>
                                                 {{-- <img src="/public/img/{{ $menu->platilloImagen }}" width="150px"> --}}
-                                                <img src="storage/photos/3/Profile_1635037790.jpg" width="150px">
+                                                <img src="storage\photos\3\Profile_1635037790.jpg" width="150px">
                                             </td>
                                             <td>{{ $menu->platilloDescripcion }}</td>
                                             <td>${{ $menu->platilloPrecio }}</td>

@@ -25,7 +25,7 @@ class Menu extends Model
 
     static $rules = [
         'platilloTitulo' => 'required',
-        'platilloImagen' => 'required',
+        /*'platilloImagen' => 'required',*/
         'platilloDescripcion' => 'required',
         'platilloPrecio' => 'required',
         /*
