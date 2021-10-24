@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    {{ $dish->name ?? 'Show Dish' }}
+    {{ $menu->name ?? 'Show Menu' }}
 @endsection
 
 @section('content')
@@ -11,38 +11,38 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="float-left">
-                            <span class="card-title">Show Dish</span>
+                            <span class="card-title">Show Menu</span>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('dish.index') }}"> Back</a>
+                            <a class="btn btn-primary" href="{{ route('menus.index') }}"> Back</a>
                         </div>
                     </div>
 
                     <div class="card-body">
-
+                        
                         <div class="form-group">
                             <strong>Platillotitulo:</strong>
-                            {{ $dish->platilloTitulo }}
+                            {{ $menu->platilloTitulo }}
                         </div>
                         <div class="form-group">
                             <strong>Platilloimagen:</strong>
-                            {{ $dish->platilloImagen }}
+                            {{ $menu->platilloImagen }}
                         </div>
                         <div class="form-group">
                             <strong>Platillodescripcion:</strong>
-                            {{ $dish->platilloDescripcion }}
+                            {{ $menu->platilloDescripcion }}
                         </div>
                         <div class="form-group">
                             <strong>Platilloprecio:</strong>
-                            {{ $dish->platilloPrecio }}
+                            {{ $menu->platilloPrecio }}
                         </div>
                         <div class="form-group">
                             <strong>Platillooferta:</strong>
-                            {{ $dish->platilloOferta }}
+                            {{ $menu->platilloOferta }}
                         </div>
                         <div class="form-group">
                             <strong>Platillostatus:</strong>
-                            {{ $dish->platilloStatus }}
+                            {{ $menu->platilloStatus }}
                         </div>
 
                     </div>

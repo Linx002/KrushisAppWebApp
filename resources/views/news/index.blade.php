@@ -35,36 +35,36 @@
                             <table class="table table-striped table-hover">
                                 <thead class="thead">
                                     <tr>
-                                        <th>No</th>
+                                        <th>####</th>
 
-                                        <th>Title</th>
-                                        <th>Description</th>
-                                        <th>Category</th>
+                                        <th>Titulo</th>
+                                        <th>Descripcion</th>
+                                        <th>Categoría</th>
 
                                         <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($news as $news)
+                                    @foreach ($news as $n)
                                         <tr>
                                             <td>{{ ++$i }}</td>
 
-                                            <td>{{ $news->noticiaTitulo }}</td>
-                                            <td>{{ $news->noticiaTexto }}</td>
-                                            <td>{{ $news->noticiaTipo }}</td>
+                                            <td>{{ $n->noticiaTitulo }}</td>
+                                            <td>{{ $n->noticiaTexto }}</td>
+                                            <td>{{ $n->noticiaTipo }}</td>
 
                                             <td>
-                                                <form action="{{ route('news.destroy', $news->id) }}" method="POST">
+                                                <form action="{{ route('news.destroy', $n->id) }}" method="POST">
                                                     <a class="btn btn-sm btn-primary "
-                                                        href="{{ route('news.show', $news->id) }}"><i
-                                                            class="fa fa-fw fa-eye"></i> Show</a>
+                                                        href="{{ route('news.show', $n->id) }}"><i
+                                                            class="fa fa-fw fa-eye"></i>Detalles</a>
                                                     <a class="btn btn-sm btn-success"
-                                                        href="{{ route('news.edit', $news->id) }}"><i
-                                                            class="fa fa-fw fa-edit"></i> Edit</a>
+                                                        href="{{ route('news.edit', $n->id) }}"><i
+                                                            class="fa fa-fw fa-edit"></i>Editar</a>
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm"><i
-                                                            class="fa fa-fw fa-trash"></i> Delete</button>
+                                                            class="fa fa-fw fa-trash"></i>Borrar</button>
                                                 </form>
                                             </td>
                                         </tr>

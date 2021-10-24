@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    Update News
+    Edicion de noticia
 @endsection
 
 @section('content')
@@ -13,10 +13,11 @@
 
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title">Update News</span>
+                        <span class="card-title">Editar noticia publicada</span>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('news.update', $news->id) }}"  role="form" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('news.update', $news->id) }}" role="form"
+                            enctype="multipart/form-data">
                             {{ method_field('PATCH') }}
                             @csrf
 

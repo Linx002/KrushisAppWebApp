@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\NewsController;
-use App\Http\Controllers\DishController;
+use App\Http\Controllers\MenuController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,7 +30,7 @@ Route::get('/contact', function () {
 //News CRUD
 Route::resource('news', NewsController::class);
 //Menu CRUD
-Route::resource('dish', DishController::class);
+Route::resource('menu', MenuController::class);
 
 Auth::routes();
 

@@ -1,25 +1,27 @@
 @extends('layouts.app')
 
 @section('template_title')
-    Create Dish
+    Editar platillo
 @endsection
 
 @section('content')
     <section class="content container-fluid">
-        <div class="row">
+        <div class="">
             <div class="col-md-12">
 
                 @includeif('partials.errors')
 
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title">Create Dish</span>
+                        <span class="card-title">Editar platillo</span>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('dish.store') }}" role="form" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('menu.update', $menu->id) }}" role="form"
+                            enctype="multipart/form-data">
+                            {{ method_field('PATCH') }}
                             @csrf
 
-                            @include('dish.form')
+                            @include('menu.form')
 
                         </form>
                     </div>

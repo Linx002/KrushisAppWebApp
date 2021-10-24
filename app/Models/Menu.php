@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class Dish
+ * Class Menu
  *
  * @property $id
  * @property $platilloTitulo
@@ -20,16 +20,19 @@ use Illuminate\Database\Eloquent\Model;
  * @package App
  * @mixin \Illuminate\Database\Eloquent\Builder
  */
-class Dish extends Model
+class Menu extends Model
 {
-    
+
     static $rules = [
-		'platilloTitulo' => 'required',
-		'platilloImagen' => 'required',
-		'platilloDescripcion' => 'required',
-		'platilloPrecio' => 'required',
+        'platilloTitulo' => 'required',
+        'platilloImagen' => 'required',
+        'platilloDescripcion' => 'required',
+        'platilloPrecio' => 'required',
+        /*
 		'platilloOferta' => 'required',
-		'platilloStatus' => 'required',
+
+        */
+        'platilloStatus' => 'required',
     ];
 
     protected $perPage = 20;
@@ -39,8 +42,5 @@ class Dish extends Model
      *
      * @var array
      */
-    protected $fillable = ['platilloTitulo','platilloImagen','platilloDescripcion','platilloPrecio','platilloOferta','platilloStatus'];
-
-
-
+    protected $fillable = ['platilloTitulo', 'platilloImagen', 'platilloDescripcion', 'platilloPrecio', 'platilloOferta', 'platilloStatus'];
 }
