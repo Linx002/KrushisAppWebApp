@@ -5,6 +5,7 @@
 @endsection
 
 @section('content')
+
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">
@@ -55,7 +56,7 @@
                                             <td>{{ $menu->platilloTitulo }}</td>
                                             <td>
                                                 {{-- <img src="/public/img/{{ $menu->platilloImagen }}" width="150px"> --}}
-                                                <img src="./storage/photos\{{$menu->id}}\{{$menu->platilloImagen}}" width="150px">
+                                                <img src="/photos/{{$menu->id}}/{{$menu->platilloImagen}}" width="150px">
                                             </td>
                                             <td>{{ $menu->platilloDescripcion }}</td>
                                             <td>${{ $menu->platilloPrecio }}</td>
@@ -96,10 +97,4 @@
         </div>
     </div>
 
-    <style>
-        .text-center {
-            text-align: center !important;
-        }
-
-    </style>
 @endsection

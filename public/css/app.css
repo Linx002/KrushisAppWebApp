@@ -65,6 +65,11 @@ body {
   background-color: #f8fafc;
 }
 
+.content {
+    padding: 16px;
+    padding-top: 95px;
+}
+
 [tabindex="-1"]:focus:not(:focus-visible) {
   outline: 0 !important;
 }
@@ -10004,3 +10009,6 @@ h3 {
     border-color: #dee2e6;
   }
 }
+    .upperBlank::after {
+        height: 75px
+    }

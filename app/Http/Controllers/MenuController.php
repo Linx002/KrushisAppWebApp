@@ -58,7 +58,7 @@ class MenuController extends Controller
             //Nombre del archivo con extension, nombre unico para la base de datos
             $finalFileName = $fileName . '_' . time() . '.' . $extension;
 
-            $path = $request->file('platilloImagen')->storeAs('storage/photos/' . $request->input('id'), $finalFileName);
+            $path = $request->file('platilloImagen')->storeAs('/photos/' . $request->input('id'), $finalFileName);
         } else {
             $CarpetaTemp = storage_path('photos') . $request->input('id');
             $Logo = public_path('img') . "\KrushisLogo.png";
@@ -145,9 +145,9 @@ class MenuController extends Controller
             //Nombre del archivo con extension, nombre unico para la base de datos
             $finalFileName = $fileName . '_' . time() . '.' . $extension;
 
-            $path = $request->file('platilloImagen')->storeAs('storage/photos/' . $request->input('id'), $finalFileName);
+            $path = $request->file('platilloImagen')->storeAs('/photos/' . $request->input('id'), $finalFileName);
         } else {
-            Storage::copy('/public/img/KrushisLogo.png', 'storage/photos/' . $request->input('id') . '/KrushisLogo.png');
+            Storage::copy('/img/KrushisLogo.png', '/photos/' . $request->input('id') . '/KrushisLogo.png');
             $finalFileName = "KrushisLogo.png";
         }
         request()->validate(Menu::$rules);
