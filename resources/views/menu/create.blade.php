@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    Añadir platillo
+    Add dish to menu
 @endsection
 
 @section('content')
@@ -13,7 +13,7 @@
 
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title">Añadir Platillo</span>
+                        <span class="card-title">Add dish form</span>
                     </div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('menu.store') }}" role="form" enctype="multipart/form-data">

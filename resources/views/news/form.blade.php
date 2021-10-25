@@ -2,18 +2,18 @@
     <div class="box-body">
 
         <div class="form-group">
-            {{ Form::label('Titulo de la noticia') }}
-            {{ Form::text('noticiaTitulo', $news->noticiaTitulo, ['class' => 'form-control' . ($errors->has('noticiaTitulo') ? ' is-invalid' : ''), 'placeholder' => 'Titulo de la noticia a publicar']) }}
+            {{ Form::label('New Title') }}
+            {{ Form::text('noticiaTitulo', $news->noticiaTitulo, ['class' => 'form-control' . ($errors->has('noticiaTitulo') ? ' is-invalid' : ''), 'placeholder' => 'Title of the announcement']) }}
             {!! $errors->first('noticiaTitulo', '<div class="invalid-feedback">:message</p>') !!}
         </div>
         <div class="form-group">
-            {{ Form::label('Detalle de noticia') }}
-            {{ Form::textarea('noticiaTexto', $news->noticiaTexto, ['class' => 'form-control' . ($errors->has('noticiaTexto') ? ' is-invalid' : ''), 'placeholder' => 'Descripcion detallada de la noticia']) }}
+            {{ Form::label('Details of the announcement') }}
+            {{ Form::textarea('noticiaTexto', $news->noticiaTexto, ['class' => 'form-control' . ($errors->has('noticiaTexto') ? ' is-invalid' : ''), 'placeholder' => 'Description of the announcement']) }}
             {!! $errors->first('noticiaTexto', '<div class="invalid-feedback">:message</p>') !!}
         </div>
         <div class="form-group">
-            {{ Form::label('Categoria de noticia') }}
-            {{ Form::text('noticiaTipo', $news->noticiaTipo, ['class' => 'form-control' . ($errors->has('noticiaTipo') ? ' is-invalid' : ''), 'placeholder' => ' - Dropdown -']) }}
+            {{ Form::label('News category') }}
+            {{ Form::select('noticiaTipo', array("Offers", "Job Opportunities", "Schedule Changes", "Menu Changes"), $news->noticiaTipo, ['class' => 'form-control' . ($errors->has('noticiaTipo') ? ' is-invalid' : '')]) }}
             {!! $errors->first('noticiaTipo', '<div class="invalid-feedback">:message</p>') !!}
         </div>
 

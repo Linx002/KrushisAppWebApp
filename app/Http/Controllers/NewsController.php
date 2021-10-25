@@ -48,7 +48,7 @@ class NewsController extends Controller
         $news = News::create($request->all());
 
         return redirect()->route('news.index')
-            ->with('success', 'News created successfully.');
+            ->with('success', 'Announcement added successfully.');
     }
 
     /**
@@ -91,7 +91,7 @@ class NewsController extends Controller
         $news->update($request->all());
 
         return redirect()->route('news.index')
-            ->with('success', 'News updated successfully');
+            ->with('success', 'Announcement updated successfully');
     }
 
     /**
@@ -104,6 +104,6 @@ class NewsController extends Controller
         $news = News::find($id)->delete();
 
         return redirect()->route('news.index')
-            ->with('success', 'News deleted successfully');
+            ->with('success', 'Announcement deleted successfully');
     }
 }

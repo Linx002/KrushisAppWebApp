@@ -19,7 +19,7 @@
                             <div class="float-right">
                                 <a href="{{ route('menu.create') }}" class="btn btn-primary btn-sm float-right"
                                     data-placement="left">
-                                    {{ __('Create New') }}
+                                    {{ __('Add Dish') }}
                                 </a>
                             </div>
                         </div>
@@ -35,16 +35,16 @@
                             <table class="table table-striped table-hover text-center">
                                 <thead class="thead">
                                     <tr>
-                                        <th>No</th>
+                                        <th>###</th>
 
-                                        <th>Platillo</th>
+                                        <th>Dish name</th>
                                         <th></th>
-                                        <th>Descripcion</th>
-                                        <th>Precio</th>
-                                        <th>Precio de oferta</th>
+                                        <th>Description</th>
+                                        <th>Regular price</th>
+                                        <th>Offer price</th>
                                         <th></th>
 
-                                        <th>Operaciones</th>
+                                        <th>Operations</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -55,7 +55,7 @@
                                             <td>{{ $menu->platilloTitulo }}</td>
                                             <td>
                                                 {{-- <img src="/public/img/{{ $menu->platilloImagen }}" width="150px"> --}}
-                                                <img src="storage\photos\3\Profile_1635037790.jpg" width="150px">
+                                                <img src="./storage/photos\{{$menu->id}}\{{$menu->platilloImagen}}" width="150px">
                                             </td>
                                             <td>{{ $menu->platilloDescripcion }}</td>
                                             <td>${{ $menu->platilloPrecio }}</td>
@@ -66,9 +66,9 @@
                                             @endif
                                             @if ($menu->platilloStatus == '1')
                                                 {{-- <td>{{ $menu->platilloStatus }}</td> --}}
-                                                <td>Disponible</td>
+                                                <td>Available</td>
                                             @else
-                                                <td>No Disponible</td>
+                                                <td>Not Available</td>
                                             @endif
                                             <td>
                                                 <form action="{{ route('menu.destroy', $menu->id) }}" method="POST">
@@ -77,11 +77,11 @@
                                                             class="fa fa-fw fa-eye"></i> Show</a> --}}
                                                     <a class="btn btn-sm btn-success"
                                                         href="{{ route('menu.edit', $menu->id) }}"><i
-                                                            class="fa fa-fw fa-edit"></i>Editar</a>
+                                                            class="fa fa-fw fa-edit"></i>Edite</a>
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm"><i
-                                                            class="fa fa-fw fa-trash"></i>Borrar</button>
+                                                            class="fa fa-fw fa-trash"></i>Delete</button>
                                                 </form>
                                             </td>
                                         </tr>

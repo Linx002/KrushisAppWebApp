@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Menu;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 /**
  * Class MenuController
@@ -18,6 +19,7 @@ class MenuController extends Controller
      */
     public function index()
     {
+        $CarpetaFotos = storage_path('photos');
         $menus = Menu::paginate();
 
         return view('menu.index', compact('menus'))
@@ -43,20 +45,26 @@ class MenuController extends Controller
      */
     public function store(Request $request)
     {
-        $fileNameWithExt = $request->file('platilloImagen')->getClientOriginalName();
+        if ($request->hasFile('image')) {
+            $fileNameWithExt = $request->file('platilloImagen')->getClientOriginalName();
 
-        //tomar solo el nombre del archivo
-        $fileName = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
+            //tomar solo el nombre del archivo
+            $fileName = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
 
-        $fileName = strtok($fileName, " ");
-        //tomar extension
-        $extension = $request->file('platilloImagen')->getClientOriginalExtension();
+            $fileName = strtok($fileName, " ");
+            //tomar extension
+            $extension = $request->file('platilloImagen')->getClientOriginalExtension();
 
-        //Nombre del archivo con extension, nombre unico para la base de datos
-        $finalFileName = $fileName . '_' . time() . '.' . $extension;
+            //Nombre del archivo con extension, nombre unico para la base de datos
+            $finalFileName = $fileName . '_' . time() . '.' . $extension;
 
-        $path = $request->file('platilloImagen')->storeAs('public/photos/', $finalFileName);
-
+            $path = $request->file('platilloImagen')->storeAs('storage/photos/' . $request->input('id'), $finalFileName);
+        } else {
+            $CarpetaTemp = storage_path('photos') . $request->input('id');
+            $Logo = public_path('img') . "\KrushisLogo.png";
+            Storage::copy($Logo, $CarpetaTemp);
+            $finalFileName = "KrushisLogo.png";
+        }
         request()->validate(Menu::$rules);
 
         $menu = new menu;
@@ -64,8 +72,17 @@ class MenuController extends Controller
         $menu->platilloTitulo = $request->input('platilloTitulo');
         $menu->platilloDescripcion = $request->input('platilloDescripcion');
         $menu->platilloPrecio = $request->input('platilloPrecio');
-        $menu->platilloOferta = $request->input('platilloOferta');
-        $menu->platilloStatus = $request->boolean('platilloStatus');
+        if ($menu->platilloOferta == "" || $menu->platilloOferta == "0") {
+            $menu->platilloOferta = "0";
+        } else {
+            $menu->platilloOferta = $request->input('platilloOferta');
+        }
+        if ($menu->platilloStatus == "true") {
+            $menu->platilloStatus = "1";
+        } else {
+            $menu->platilloStatus = "0";
+        }
+        // $menu->platilloStatus = $request->boolean('platilloStatus');
         $menu->platilloImagen = $finalFileName;
 
         /*
@@ -75,7 +92,7 @@ class MenuController extends Controller
         $menu->save();
 
         return redirect()->route('menu.index')
-            ->with('success', 'Menu created successfully.');
+            ->with('success', 'Dish added succesfully.');
     }
 
     /**
@@ -115,20 +132,24 @@ class MenuController extends Controller
     {
         request()->validate(Menu::$rules);
 
-        $fileNameWithExt = $request->file('platilloImagen')->getClientOriginalName();
+        if ($request->hasFile('image')) {
+            $fileNameWithExt = $request->file('platilloImagen')->getClientOriginalName();
 
-        //tomar solo el nombre del archivo
-        $fileName = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
+            //tomar solo el nombre del archivo
+            $fileName = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
 
-        $fileName = strtok($fileName, " ");
-        //tomar extension
-        $extension = $request->file('platilloImagen')->getClientOriginalExtension();
+            $fileName = strtok($fileName, " ");
+            //tomar extension
+            $extension = $request->file('platilloImagen')->getClientOriginalExtension();
 
-        //Nombre del archivo con extension, nombre unico para la base de datos
-        $finalFileName = $fileName . '_' . time() . '.' . $extension;
+            //Nombre del archivo con extension, nombre unico para la base de datos
+            $finalFileName = $fileName . '_' . time() . '.' . $extension;
 
-        $path = $request->file('platilloImagen')->storeAs('storage/photos/' . $request->input('id'), $finalFileName);
-
+            $path = $request->file('platilloImagen')->storeAs('storage/photos/' . $request->input('id'), $finalFileName);
+        } else {
+            Storage::copy('/public/img/KrushisLogo.png', 'storage/photos/' . $request->input('id') . '/KrushisLogo.png');
+            $finalFileName = "KrushisLogo.png";
+        }
         request()->validate(Menu::$rules);
 
         $menu = new menu;
@@ -136,14 +157,18 @@ class MenuController extends Controller
         $menu->platilloTitulo = $request->input('platilloTitulo');
         $menu->platilloDescripcion = $request->input('platilloDescripcion');
         $menu->platilloPrecio = $request->input('platilloPrecio');
-        $menu->platilloOferta = $request->input('platilloOferta');
+        if ($menu->platilloOferta == "" || $menu->platilloOferta == "0") {
+            $menu->platilloOferta = "0";
+        } else {
+            $menu->platilloOferta = $request->input('platilloOferta');
+        }
         $menu->platilloStatus = $request->boolean('platilloStatus');
         $menu->platilloImagen = $finalFileName;
 
         //$menu->update($request->all());
 
         return redirect()->route('menu.index')
-            ->with('success', 'Menu updated successfully');
+            ->with('success', 'Dish updated successfully');
     }
 
     /**
@@ -156,6 +181,6 @@ class MenuController extends Controller
         $menu = Menu::find($id)->delete();
 
         return redirect()->route('menu.index')
-            ->with('success', 'Menu deleted successfully');
+            ->with('success', 'Dish deleted successfully');
     }
 }

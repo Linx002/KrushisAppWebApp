@@ -30,9 +30,9 @@ class Menu extends Model
         'platilloPrecio' => 'required',
         /*
 		'platilloOferta' => 'required',
-
-        */
         'platilloStatus' => 'required',
+        */
+
     ];
 
     protected $perPage = 20;

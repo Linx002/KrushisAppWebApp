@@ -5,6 +5,8 @@
 @endsection
 
 @section('content')
+
+
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">
@@ -15,11 +17,10 @@
                             <span id="card_title">
                                 News
                             </span>
-
                             <div class="float-right">
                                 <a href="{{ route('news.create') }}" class="btn btn-primary btn-sm float-right"
                                     data-placement="left">
-                                    New entry
+                                    Create announcement
                                 </a>
                             </div>
                         </div>
@@ -37,9 +38,9 @@
                                     <tr>
                                         <th>####</th>
 
-                                        <th>Titulo</th>
-                                        <th>Descripcion</th>
-                                        <th>Categoría</th>
+                                        <th></th>
+                                        <th>Description</th>
+                                        <th>Category</th>
 
                                         <th></th>
                                     </tr>
@@ -57,14 +58,14 @@
                                                 <form action="{{ route('news.destroy', $n->id) }}" method="POST">
                                                     <a class="btn btn-sm btn-primary "
                                                         href="{{ route('news.show', $n->id) }}"><i
-                                                            class="fa fa-fw fa-eye"></i>Detalles</a>
+                                                            class="fa fa-fw fa-eye"></i>Details</a>
                                                     <a class="btn btn-sm btn-success"
                                                         href="{{ route('news.edit', $n->id) }}"><i
-                                                            class="fa fa-fw fa-edit"></i>Editar</a>
+                                                            class="fa fa-fw fa-edit"></i>Edit</a>
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm"><i
-                                                            class="fa fa-fw fa-trash"></i>Borrar</button>
+                                                            class="fa fa-fw fa-trash"></i>Delete</button>
                                                 </form>
                                             </td>
                                         </tr>
