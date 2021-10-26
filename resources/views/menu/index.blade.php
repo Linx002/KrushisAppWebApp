@@ -78,7 +78,7 @@
                                                             class="fa fa-fw fa-eye"></i> Show</a> --}}
                                                     <a class="btn btn-sm btn-success"
                                                         href="{{ route('menu.edit', $menu->id) }}"><i
-                                                            class="fa fa-fw fa-edit"></i>Edite</a>
+                                                            class="fa fa-fw fa-edit"></i>Edit</a>
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm"><i

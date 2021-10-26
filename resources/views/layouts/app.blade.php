@@ -51,19 +51,19 @@
     <header class="top-navbar">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container">
-                <a class="navbar-brand" href="index.html">
-                    <img src="img/logo.png" height="60px" alt="index.html" />
+                <a class="navbar-brand" href="/">
+                    <img src="img/logo.png" height="60px" alt="Krushi's Indian Bistro" />
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbars-rs-food" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
 				  <span class="navbar-toggler-icon"></span>
 				</button>
                 <div class="collapse navbar-collapse" id="navbars-rs-food">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item active"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item active"><a class="nav-link" href="/">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="/menu">Menu</a></li>
                         <li class="nav-item"><a class="nav-link" href="/news">News</a></li>
 
-                        <li class="nav-item"><a class="nav-link" href="/menu">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
                         {{-- <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li> --}}
 
                     </ul>
@@ -132,16 +132,12 @@
             </div>
         </main>
     </div>
-
-
-
-    <!-- End Gallery -->
         <!-- Start Footer -->
     <footer class="footer-area bg-f">
         <div class="container">
             <div class="row">
                 <div class="col-lg-3 col-md-6">
-                    <img src="img/logo.png" height="60px" alt="index.html" />
+                    <img src="img/logo.png" height="60px" alt="Krushi's Indian Bistro" />
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h3>Our Social Media</h3>

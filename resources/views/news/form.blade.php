@@ -19,6 +19,6 @@
 
     </div>
     <div class="box-footer mt20">
-        <button type="submit" class="btn btn-primary">Publicar</button>
+        <button type="submit" class="btn btn-primary">Publish</button>
     </div>
 </div>
