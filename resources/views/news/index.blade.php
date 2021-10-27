@@ -14,12 +14,14 @@
                             <span id="card_title">
                                 News
                             </span>
+                            @auth
                             <div class="float-right">
                                 <a href="{{ route('news.create') }}" class="btn btn-primary btn-sm float-right"
                                     data-placement="left">
                                     Create announcement
                                 </a>
                             </div>
+                            @endauth
                         </div>
                     </div>{{-- card-header --}}
                     @if ($message = Session::get('success'))
@@ -54,7 +56,8 @@
                                 <div class="card-body">
                                     <h5 class="card-title">{{ $n->noticiaTitulo }}</h5>
                                     <p class="card-text">{{ $n->noticiaTexto }}</p>
-                                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                    {{-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> --}}
+                                    @auth
                                     <form action="{{ route('news.destroy', $n->id) }}" method="POST">
                                         <a class="btn btn-sm btn-success"
                                             href="{{ route('news.edit', $n->id) }}"><i
@@ -64,6 +67,7 @@
                                         <button type="submit" class="btn btn-danger btn-sm"><i
                                                 class="fa fa-fw fa-trash"></i>Delete</button>
                                     </form>
+                                    @endauth
                                 </div>{{-- card-body --}}
                             </div>{{-- col-md-8 --}}
                             </div>{{-- row g-0 --}}

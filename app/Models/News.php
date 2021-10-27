@@ -19,22 +19,19 @@ use Illuminate\Database\Eloquent\Model;
  */
 class News extends Model
 {
-    
+
     static $rules = [
-		'noticiaTitulo' => 'required',
-		'noticiaTexto' => 'required',
-		'noticiaTipo' => 'required',
+        'noticiaTitulo' => 'required',
+        'noticiaTexto' => 'required',
+        'noticiaTipo' => 'required',
     ];
 
-    protected $perPage = 20;
+    protected $perPage = 10;
 
     /**
      * Attributes that should be mass-assignable.
      *
      * @var array
      */
-    protected $fillable = ['noticiaTitulo','noticiaTexto','noticiaTipo'];
-
-
-
+    protected $fillable = ['noticiaTitulo', 'noticiaTexto', 'noticiaTipo'];
 }

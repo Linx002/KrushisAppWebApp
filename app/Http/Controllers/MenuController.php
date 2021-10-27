@@ -45,7 +45,7 @@ class MenuController extends Controller
      */
     public function store(Request $request)
     {
-        if ($request->hasFile('image')) {
+        if ($request->hasFile('platilloImagen')) {
             $fileNameWithExt = $request->file('platilloImagen')->getClientOriginalName();
 
             //tomar solo el nombre del archivo
@@ -60,8 +60,8 @@ class MenuController extends Controller
 
             $path = $request->file('platilloImagen')->storeAs('/photos/' . $request->input('id'), $finalFileName);
         } else {
-            $CarpetaTemp = storage_path('photos') . $request->input('id');
-            $Logo = public_path('img') . "\KrushisLogo.png";
+            $CarpetaTemp = storage_path('/photos') . $request->input('id');
+            $Logo = storage_path('/photos') . "/KrushisLogo.png";
             Storage::copy($Logo, $CarpetaTemp);
             $finalFileName = "KrushisLogo.png";
         }
@@ -132,7 +132,7 @@ class MenuController extends Controller
     {
         request()->validate(Menu::$rules);
 
-        if ($request->hasFile('image')) {
+        if ($request->hasFile('platilloImagen')) {
             $fileNameWithExt = $request->file('platilloImagen')->getClientOriginalName();
 
             //tomar solo el nombre del archivo
@@ -146,9 +146,6 @@ class MenuController extends Controller
             $finalFileName = $fileName . '_' . time() . '.' . $extension;
 
             $path = $request->file('platilloImagen')->storeAs('/photos/' . $request->input('id'), $finalFileName);
-        } else {
-            Storage::copy('/img/KrushisLogo.png', '/photos/' . $request->input('id') . '/KrushisLogo.png');
-            $finalFileName = "KrushisLogo.png";
         }
         request()->validate(Menu::$rules);
 
@@ -163,7 +160,9 @@ class MenuController extends Controller
             $menu->platilloOferta = $request->input('platilloOferta');
         }
         $menu->platilloStatus = $request->boolean('platilloStatus');
-        $menu->platilloImagen = $finalFileName;
+        if ($request->hasFile('platilloImagen')) {
+            $menu->platilloImagen = $finalFileName;
+        }
 
         //$menu->update($request->all());
 

@@ -24,18 +24,15 @@ class Menu extends Model
 {
 
     static $rules = [
-        'platilloTitulo' => 'required',
-        /*'platilloImagen' => 'required',*/
-        'platilloDescripcion' => 'required',
-        'platilloPrecio' => 'required',
-        /*
-		'platilloOferta' => 'required',
-        'platilloStatus' => 'required',
-        */
-
+        'platilloTitulo' => 'required|max:100',
+        'platilloImagen' => 'nullable|mimes:jpg,bmp,png|max:50',
+        'platilloDescripcion' => 'required|max:250',
+        'platilloPrecio' => 'required|numeric',
+        'platilloOferta' => 'nullable|numeric',
+        'platilloStatus' => 'boolean',
     ];
 
-    protected $perPage = 20;
+    protected $perPage = 4;
 
     /**
      * Attributes that should be mass-assignable.

@@ -70,4 +70,6 @@
         </div>
     </div>
 </div>
+<h1>Hello</h1>
+<img src="img/KrushisLogo.png">
 @endsection

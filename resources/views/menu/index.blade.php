@@ -16,13 +16,14 @@
                             <span id="card_title">
                                 {{ __('Menu') }}
                             </span>
-
+                            @auth
                             <div class="float-right">
                                 <a href="{{ route('menu.create') }}" class="btn btn-primary btn-sm float-right"
                                     data-placement="left">
                                     {{ __('Add Dish') }}
                                 </a>
                             </div>
+                            @endauth
                         </div>
                     </div>
                     @if ($message = Session::get('success'))
@@ -44,8 +45,9 @@
                                         <th>Regular price</th>
                                         <th>Offer price</th>
                                         <th></th>
-
+                                        @auth
                                         <th>Operations</th>
+                                        @endauth
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -56,6 +58,7 @@
                                             <td>{{ $menu->platilloTitulo }}</td>
                                             <td>
                                                 {{-- <img src="/public/img/{{ $menu->platilloImagen }}" width="150px"> --}}
+                                                {{-- la carpeta que se utiliza es /public/photos/ --}}
                                                 <img src="/photos/{{$menu->id}}/{{$menu->platilloImagen}}" width="150px">
                                             </td>
                                             <td>{{ $menu->platilloDescripcion }}</td>
@@ -72,6 +75,7 @@
                                                 <td>Not Available</td>
                                             @endif
                                             <td>
+                                                @auth
                                                 <form action="{{ route('menu.destroy', $menu->id) }}" method="POST">
                                                     {{-- <a class="btn btn-sm btn-primary "
                                                         href="{{ route('menu.show', $menu->id) }}"><i
@@ -84,6 +88,7 @@
                                                     <button type="submit" class="btn btn-danger btn-sm"><i
                                                             class="fa fa-fw fa-trash"></i>Delete</button>
                                                 </form>
+                                                @endauth
                                             </td>
                                         </tr>
                                     @endforeach

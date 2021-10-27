@@ -7,9 +7,26 @@
             {!! $errors->first('platilloTitulo', '<div class="invalid-feedback">:message</p>') !!}
         </div>
             <div class="form-group">
-                {{ Form::label('Photo of the dish') }}<p></p>
-                {{ Form::file('platilloImagen', $menu->platilloImagen, ['class' => 'form-control' . ($errors->has('platilloImagen') ? ' is-invalid' : '')]) }}
-                {!! $errors->first('platilloImagen', '<div class="invalid-feedback">:message</p>') !!}
+                <div class="row">
+                    <div class="col">
+                    {{ Form::label('Photo of the dish') }}
+                    </div>
+                        @if ($menu->platilloImagen != "")
+                        <div class="col">
+                            <input type="file" class="file" id="platilloImagen" name="platilloImagen">
+                        </div>
+                        <div class="col">
+                            <label>Current image</label>
+                            <img src="/photos/{{$menu->id}}/{{$menu->platilloImagen}}" width="150px">
+                        </div>
+                    @else
+                        <div class="col">
+                            <input type="file" class="file" id="platilloImagen" name="platilloImagen">
+                        </div>
+                    @endif
+                    {{-- {{ Form::file('platilloImagen', $menu->platilloImagen, ['class' => 'form-control' . ($errors->has('platilloImagen') ? ' is-invalid' : '')]) }} --}}
+                    {!! $errors->first('platilloImagen', '<div class="invalid-feedback">:message</p>') !!}
+                </div>
             </div>
         <div class="form-group">
             {{ Form::label('Dish description') }}
@@ -19,17 +36,19 @@
         <div class="row">
             <div class="form-group col">
                 {{ Form::label('Regular price') }}
-                {{ Form::number('platilloPrecio', $menu->platilloPrecio, ['class' => 'form-control' . ($errors->has('platilloPrecio') ? ' is-invalid' : ''), 'placeholder' => 'Normal dish price - 47.50']) }}
+                <input type="text" name="platilloPrecio" id="platilloPrecio" @if($menu->platilloPrecio != "") value="{{$menu->platilloPrecio}}" @endif>
+                {{-- {{ Form::number('platilloPrecio', $menu->platilloPrecio, ['class' => 'form-control' . ($errors->has('platilloPrecio') ? ' is-invalid' : ''), 'placeholder' => 'Normal dish price - 47.50']) }} --}}
                 {!! $errors->first('platilloPrecio', '<div class="invalid-feedback">:message</p>') !!}
             </div>
             <div class="col">
                 {{ Form::label('Final offer price') }}
-                {{ Form::number('platilloOferta', $menu->platilloOferta, ['class' => 'form-control' . ($errors->has('platilloOferta') ? ' is-invalid' : ''), 'placeholder' => 'Dish offer price - 40.50']) }}
+                <input type="text" name="platilloOferta" id="platilloOferta" @if($menu->platilloOferta != "") value="{{$menu->platilloOferta}}" @endif>
+                {{-- {{ Form::number('platilloOferta', $menu->platilloOferta, ['class' => 'form-control' . ($errors->has('platilloOferta') ? ' is-invalid' : ''), 'placeholder' => 'Dish offer price - 40.50']) }} --}}
                 {!! $errors->first('platilloOferta', '<div class="invalid-feedback">:message</p>') !!}
             </div>
         </div>
         <div class="form-group">
-            {{ Form::label('Dish availability') }} <p></p>
+            {{ Form::label('Dish availability') }}
             <input type="checkbox" name="platilloStatus" id="platilloStatus" @php
                 if ($menu->platilloStatus == '1') {
                     echo 'checked';
