@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <section class="content container-fluid">
+    @if(Auth::check())    <section class="content container-fluid">
         <div class="row">
             <div class="col-md-12">
 
@@ -27,4 +27,7 @@
             </div>
         </div>
     </section>
+    @else
+<h1>You need to login to see this content.</h1>
+    @endif
 @endsection

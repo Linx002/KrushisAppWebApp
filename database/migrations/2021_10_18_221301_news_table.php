@@ -14,7 +14,7 @@ class NewsTable extends Migration
     public function up()
     {
         Schema::create('news', function (Blueprint $table) {
-            $table->id();
+            $table->bigincrements('id');
             $table->string('noticiaTitulo', 100);
             $table->string('noticiaTexto', 500);
             $table->string('noticiaTipo', 10);

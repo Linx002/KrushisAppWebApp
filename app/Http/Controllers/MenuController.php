@@ -43,6 +43,12 @@ class MenuController extends Controller
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
+
+    /*
+     /+/+/+/+/+/+/+/+/+/+/+/+
+     STORE
+     /+/+/+/+/+/+/+/+/+/+/+/+
+     */
     public function store(Request $request)
     {
         if ($request->hasFile('platilloImagen')) {
@@ -94,7 +100,11 @@ class MenuController extends Controller
         return redirect()->route('menu.index')
             ->with('success', 'Dish added succesfully.');
     }
-
+    /*
+     /+/+/+/+/+/+/+/+/+/+/+/+
+     STORE
+     /+/+/+/+/+/+/+/+/+/+/+/+
+     */
     /**
      * Display the specified resource.
      *
@@ -128,10 +138,14 @@ class MenuController extends Controller
      * @param  Menu $menu
      * @return \Illuminate\Http\Response
      */
+
+    /*
+     *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+     UPDATE
+     *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+     */
     public function update(Request $request, Menu $menu)
     {
-        request()->validate(Menu::$rules);
-
         if ($request->hasFile('platilloImagen')) {
             $fileNameWithExt = $request->file('platilloImagen')->getClientOriginalName();
 
@@ -169,6 +183,11 @@ class MenuController extends Controller
         return redirect()->route('menu.index')
             ->with('success', 'Dish updated successfully');
     }
+    /*
+     *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+     UPDATE
+     *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+     */
 
     /**
      * @param int $id
