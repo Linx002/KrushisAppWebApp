@@ -14,7 +14,7 @@
 
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title">Update/Modifiy dish form</span>
+                        <span class="card-title">Update/Modifiy dish</span>
                     </div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('menu.update', $menu->id) }}" role="form"

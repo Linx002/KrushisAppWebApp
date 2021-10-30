@@ -32,7 +32,7 @@ class Menu extends Model
         'platilloStatus' => 'boolean',
     ];
 
-    protected $perPage = 4;
+    protected $perPage = 10;
 
     /**
      * Attributes that should be mass-assignable.

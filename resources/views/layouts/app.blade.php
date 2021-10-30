@@ -62,7 +62,6 @@
                         <li class="nav-item active"><a class="nav-link" href="/">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="/menu">Menu</a></li>
                         <li class="nav-item"><a class="nav-link" href="/news">News</a></li>
-
                         <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
                         {{-- <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li> --}}
 

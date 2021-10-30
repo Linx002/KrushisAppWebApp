@@ -288,7 +288,7 @@ button:focus {
 
 .about-section-box {
     padding: 70px 0px;
-    /*  background: #ffffff url(../img/about-bg.jpg) no-repeat bottom center; */
+    /*  background: #ffffff url(../images/about-bg.jpg) no-repeat bottom center; */
     background-size: cover;
 }
 
@@ -335,7 +335,7 @@ button:focus {
 -------------------------------------------------------------------*/
 
 .qt-background {
-    background: url(../img/k3.png) no-repeat;
+    background: url(../images/k3.png) no-repeat;
     background-size: cover;
     padding: 400px 0;
     background-attachment: fixed;
@@ -580,7 +580,7 @@ button:focus {
 
 .page-breadcrumb {
     padding: 250px 0 150px;
-    background: url(../img/all-bg.jpg) no-repeat;
+    background: url(../images/all-bg.jpg) no-repeat;
     background-attachment: fixed;
     background-size: cover;
     background-position: 0 0;
@@ -903,3 +903,60 @@ blockquote {
     transition: opacity 0.2s ease-out;
     font-size: 30px;
 }
+/* SECTION, DETAILS AND SUMMARY CSS STARTS */
+
+    section {
+        max-width: var(--sectionWidth);
+        margin: 40px auto;
+        width: 92%;
+        color: #333333;
+    }
+
+    details[open]>summary {
+        color: #ad0707;
+        margin-top: 50px;
+    }
+
+    @media (min-width: 768px) {
+        details[open]>div>p {
+            opacity: 0;
+            animation-name: showContent;
+            animation-duration: 0.6s;
+            animation-delay: 0.6s;
+            animation-fill-mode: forwards;
+            margin: 0;
+            padding-left: 20px;
+        }
+        summary {
+            display: block;
+            cursor: pointer;
+            padding: 10px;
+            font-size: 22px;
+            transition: .3s;
+            border-bottom: 2px solid;
+            user-select: none;
+            margin-top: auto;
+        }
+    }
+    /* SECTION, DETAILS AND SUMMARY CSS ENDS */
+    /* IMG MENU BANNER */
+
+    .center {
+        margin: 10px auto;
+        display: block;
+    }
+    /* CARDS SECTION STARTS */
+
+    @media (min-width:34em) {
+        .card-deck>.card {
+            width: 29%;
+            flex-wrap: wrap;
+            flex: initial;
+        }
+    }
+    /* CARD SECTION ENDS */
+
+    .card-deck .img-fluid-l {
+        max-width: auto;
+        height: auto;
+    }

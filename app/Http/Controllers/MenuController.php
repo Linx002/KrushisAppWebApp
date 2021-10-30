@@ -88,6 +88,7 @@ class MenuController extends Controller
         } else {
             $menu->platilloStatus = "0";
         }
+        $menu->platilloTipo = $request->input('platilloTipo');
         // $menu->platilloStatus = $request->boolean('platilloStatus');
         $menu->platilloImagen = $finalFileName;
 

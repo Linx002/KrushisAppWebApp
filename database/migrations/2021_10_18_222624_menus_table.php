@@ -19,6 +19,7 @@ class MenusTable extends Migration
             $table->string('platilloTitulo', 100);
             $table->string('platilloImagen', 50);
             $table->string('platilloDescripcion', 250);
+            $table->string('platilloTipo', 20);
             $table->double('platilloPrecio', 8, 2);
             $table->double('platilloOferta', 8, 2);
             $table->boolean('platilloStatus');
