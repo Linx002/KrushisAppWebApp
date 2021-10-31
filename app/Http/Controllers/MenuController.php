@@ -51,26 +51,20 @@ class MenuController extends Controller
      */
     public function store(Request $request)
     {
-        if ($request->hasFile('platilloImagen')) {
-            $fileNameWithExt = $request->file('platilloImagen')->getClientOriginalName();
+        $fileNameWithExt = $request->file('platilloImagen')->getClientOriginalName();
 
-            //tomar solo el nombre del archivo
-            $fileName = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
+        //tomar solo el nombre del archivo
+        $fileName = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
 
-            $fileName = strtok($fileName, " ");
-            //tomar extension
-            $extension = $request->file('platilloImagen')->getClientOriginalExtension();
+        $fileName = strtok($fileName, " ");
+        //tomar extension
+        $extension = $request->file('platilloImagen')->getClientOriginalExtension();
 
-            //Nombre del archivo con extension, nombre unico para la base de datos
-            $finalFileName = $fileName . '_' . time() . '.' . $extension;
+        //Nombre del archivo con extension, nombre unico para la base de datos
+        $finalFileName = $fileName . '_' . time() . '.' . $extension;
 
-            $path = $request->file('platilloImagen')->storeAs('/photos/' . $request->input('id'), $finalFileName);
-        } else {
-            $CarpetaTemp = storage_path('/photos') . $request->input('id');
-            $Logo = storage_path('/photos') . "/KrushisLogo.png";
-            Storage::copy($Logo, $CarpetaTemp);
-            $finalFileName = "KrushisLogo.png";
-        }
+        $path = $request->file('platilloImagen')->storeAs('/photos/' . $request->input('id'), $finalFileName);
+
         request()->validate(Menu::$rules);
 
         $menu = new menu;
@@ -147,21 +141,19 @@ class MenuController extends Controller
      */
     public function update(Request $request, Menu $menu)
     {
-        if ($request->hasFile('platilloImagen')) {
-            $fileNameWithExt = $request->file('platilloImagen')->getClientOriginalName();
+        $fileNameWithExt = $request->file('platilloImagen')->getClientOriginalName();
 
-            //tomar solo el nombre del archivo
-            $fileName = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
+        //tomar solo el nombre del archivo
+        $fileName = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
 
-            $fileName = strtok($fileName, " ");
-            //tomar extension
-            $extension = $request->file('platilloImagen')->getClientOriginalExtension();
+        $fileName = strtok($fileName, " ");
+        //tomar extension
+        $extension = $request->file('platilloImagen')->getClientOriginalExtension();
 
-            //Nombre del archivo con extension, nombre unico para la base de datos
-            $finalFileName = $fileName . '_' . time() . '.' . $extension;
+        //Nombre del archivo con extension, nombre unico para la base de datos
+        $finalFileName = $fileName . '_' . time() . '.' . $extension;
 
-            $path = $request->file('platilloImagen')->storeAs('/photos/' . $request->input('id'), $finalFileName);
-        }
+        $path = $request->file('platilloImagen')->storeAs('/photos/' . $request->input('id'), $finalFileName);
         request()->validate(Menu::$rules);
 
         $menu = new menu;
