@@ -11,7 +11,7 @@
             <div class="form-group">
                 <form class="form-inline">
                 @csrf
-                    <div class="form-group lg-2">
+                    {{-- <div class="form-group lg-2">
                         <div class="row flex-row">
                             <div class="col-md-4">
                                 <label for="name">Name:</label>
@@ -23,10 +23,10 @@
                                 <textarea id="message" name="message" class="text area" placeholder="Message" rows="8" aria-label="Write any message in this field"></textarea>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row"> </div>--}}
 
-                        </div>
-                        {{-- <div class="col-6">
+
+                        <div class="col-6">
                             <div class="row">
                                 <label for="name">Name:</label>
                                 <input type="text" id="name" class="text">
@@ -48,7 +48,7 @@
                                     <option value="3">Events and special ocassions</option>
                                 </select>
                             </div>
-                        </div>{{-- col (COLUMNA IZQ)
+                        </div>{{-- col (COLUMNA IZQ)--}}
                         <div class="col">
                             <label for="nessage">Message</label>
                             <textarea id="message" name="message" class="text area" placeholder="Message" rows="8" aria-label="Write any message in this field"></textarea>
@@ -56,7 +56,7 @@
                     </div>
                 </form>
                 <div class="box-footer mt20">
-                            <button type="submit" class="btn btn-primary">Send</button>
+                            <a href="/"><button type="submit" class="btn btn-primary">   Send    </button></a>
                         </div>
                 </div>{{-- form-group --}}
             </div>{{-- card-body --}}

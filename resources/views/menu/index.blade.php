@@ -40,11 +40,11 @@
                                     @foreach ($menus as $menu)
                                         @if($menu->platilloTipo == "Appetizers")
                                             <div class="card" style="max-width: 30%">
-                                                <img class="img-fluid-l" src="/photos/{{$menu->id}}/{{$menu->platilloImagen}}" alt="Gallery Images">
+                                                <img class="card-img-top" src="/photos/{{$menu->id}}/{{$menu->platilloImagen}}" alt="Gallery Images">
                                                 <div class="card-body">
                                                     <h4 class="card-title">{{ $menu->platilloTitulo }}</h4>
                                                     <p class="card-text">{{ $menu->platilloDescripcion }}</p>
-                                                    <p class="btn btn-lg btn-circle btn-outline-new-white">{{ $menu->platilloPrecio }}</p>
+                                                    <p class="btn btn-lg btn-circle btn-danger btn-outline-new-white">${{ $menu->platilloPrecio }}</p>
                                                     @auth
                                                     <form action="{{ route('menu.destroy', $menu->id) }}" method="POST">
                                                         <a class="btn btn-sm btn-success" href="{{ route('menu.edit', $menu->id) }}"><i class="fa fa-fw fa-edit"></i>Edit</a>
@@ -68,11 +68,12 @@
                                     @foreach ($menus as $menu)
                                         @if($menu->platilloTipo == "Main Dishes")
                                             <div class="card" style="max-width: 30%">
-                                                <img class="img-fluid-l" src="/photos/{{$menu->id}}/{{$menu->platilloImagen}}" alt="Gallery Images">
+                                                <img class="card-img-top" src="/photos/{{$menu->id}}/{{$menu->platilloImagen}}" alt="Gallery Images">
                                                 <div class="card-body">
                                                     <h4 class="card-title">{{ $menu->platilloTitulo }}</h4>
+                                                    {{--poner dentro de un if para checar ofertas--}}
                                                     <p class="card-text">{{ $menu->platilloDescripcion }}</p>
-                                                    <p class="btn btn-lg btn-circle btn-outline-new-white">{{ $menu->platilloPrecio }}</p>
+                                                    <p class="btn btn-lg btn-circle btn-outline-new-white">${{ $menu->platilloPrecio }}</p>
                                                     @auth
                                                     <form action="{{ route('menu.destroy', $menu->id) }}" method="POST">
                                                         <a class="btn btn-sm btn-success" href="{{ route('menu.edit', $menu->id) }}"><i class="fa fa-fw fa-edit"></i>Edit</a>
@@ -96,11 +97,11 @@
                                     @foreach ($menus as $menu)
                                         @if($menu->platilloTipo == "Desserts")
                                             <div class="card" style="max-width: 30%">
-                                                <img class="img-fluid-l" src="/photos/{{$menu->id}}/{{$menu->platilloImagen}}" alt="Gallery Images">
+                                                <img class="card-img-top" src="/photos/{{$menu->id}}/{{$menu->platilloImagen}}" alt="Gallery Images">
                                                 <div class="card-body">
                                                     <h4 class="card-title">{{ $menu->platilloTitulo }}</h4>
                                                     <p class="card-text">{{ $menu->platilloDescripcion }}</p>
-                                                    <p class="btn btn-lg btn-circle btn-outline-new-white">{{ $menu->platilloPrecio }}</p>
+                                                    <p class="btn btn-lg btn-circle btn-outline-new-white">${{ $menu->platilloPrecio }}</p>
                                                     @auth
                                                     <form action="{{ route('menu.destroy', $menu->id) }}" method="POST">
                                                         <a class="btn btn-sm btn-success" href="{{ route('menu.edit', $menu->id) }}"><i class="fa fa-fw fa-edit"></i>Edit</a>
