@@ -13,6 +13,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property $platilloDescripcion
  * @property $platilloPrecio
  * @property $platilloOferta
+ * @property $platilloTipo
  * @property $platilloStatus
  * @property $created_at
  * @property $updated_at
@@ -25,10 +26,11 @@ class Menu extends Model
 
     static $rules = [
         'platilloTitulo' => 'required|max:100',
-        'platilloImagen' => 'required|mimes:jpg,bmp,png|max:250',
+        'platilloImagen' => 'required|image|max:250',
         'platilloDescripcion' => 'required|max:250',
         'platilloPrecio' => 'required|numeric',
-        'platilloOferta' => 'nullable|numeric',
+        'platilloOferta' => 'nullable|numeric|lt:platilloPrecio',
+        'platilloTipo' => 'required|max:20',
         'platilloStatus' => 'boolean',
     ];
 
@@ -39,5 +41,5 @@ class Menu extends Model
      *
      * @var array
      */
-    protected $fillable = ['platilloTitulo', 'platilloImagen', 'platilloDescripcion', 'platilloPrecio', 'platilloOferta', 'platilloStatus'];
+    protected $fillable = ['platilloTitulo', 'platilloImagen', 'platilloDescripcion', 'platilloPrecio', 'platilloOferta', 'platilloTipo', 'platilloStatus'];
 }

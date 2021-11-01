@@ -19,7 +19,6 @@ class MenuController extends Controller
      */
     public function index()
     {
-        $CarpetaFotos = storage_path('photos');
         $menus = Menu::paginate();
 
         return view('menu.index', compact('menus'))
@@ -51,6 +50,8 @@ class MenuController extends Controller
      */
     public function store(Request $request)
     {
+        request()->validate(Menu::$rules);
+
         $fileNameWithExt = $request->file('platilloImagen')->getClientOriginalName();
 
         //tomar solo el nombre del archivo
@@ -62,28 +63,40 @@ class MenuController extends Controller
 
         //Nombre del archivo con extension, nombre unico para la base de datos
         $finalFileName = $fileName . '_' . time() . '.' . $extension;
-
-        $path = $request->file('platilloImagen')->storeAs('/photos/' . $request->input('id'), $finalFileName);
-
-        request()->validate(Menu::$rules);
+        $path = $request->file('platilloImagen')->storeAs('photos/' . $request->input('id'), $finalFileName);
 
         $menu = new menu;
 
         $menu->platilloTitulo = $request->input('platilloTitulo');
         $menu->platilloDescripcion = $request->input('platilloDescripcion');
         $menu->platilloPrecio = $request->input('platilloPrecio');
-        if ($menu->platilloOferta == "" || $menu->platilloOferta == "0") {
+        if ($request->input('platilloOferta') == "" || $request->input('platilloOferta') == "0") {
             $menu->platilloOferta = "0";
         } else {
             $menu->platilloOferta = $request->input('platilloOferta');
         }
-        if ($menu->platilloStatus == "true") {
+
+        // $menu->platilloStatus = $request->boolean('platilloStatus');
+        if ($request->input('platilloStatus') == "true") {
             $menu->platilloStatus = "1";
         } else {
             $menu->platilloStatus = "0";
         }
-        $menu->platilloTipo = $request->input('platilloTipo');
-        // $menu->platilloStatus = $request->boolean('platilloStatus');
+
+        //$menu->platilloTipo = $request->input('platilloTipo');
+        if ($request->input('platilloTipo') == "0") {
+            //"Appetizers", "Main Dishes", "Desserts", "Drinks","Sides"
+            $menu->platilloTipo = "Appetizers";
+        } elseif ($request->input('platilloTipo') == "1") {
+            $menu->platilloTipo = "Main Dishes";
+        } elseif ($request->input('platilloTipo') == "2") {
+            $menu->platilloTipo = "Desserts";
+        } elseif ($request->input('platilloTipo') == "3") {
+            $menu->platilloTipo = "Drinks";
+        } elseif ($request->input('platilloTipo') == "4") {
+            $menu->platilloTipo = "Sides";
+        }
+
         $menu->platilloImagen = $finalFileName;
 
         /*
@@ -141,19 +154,22 @@ class MenuController extends Controller
      */
     public function update(Request $request, Menu $menu)
     {
-        $fileNameWithExt = $request->file('platilloImagen')->getClientOriginalName();
+        if ($request->hasFile('platilloImagen') == null) {
+            $finalFileName = $menu->platilloImagen;
+        } else {
+            $fileNameWithExt = $request->file('platilloImagen')->getClientOriginalName();
 
-        //tomar solo el nombre del archivo
-        $fileName = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
+            //tomar solo el nombre del archivo
+            $fileName = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
 
-        $fileName = strtok($fileName, " ");
-        //tomar extension
-        $extension = $request->file('platilloImagen')->getClientOriginalExtension();
+            $fileName = strtok($fileName, " ");
+            //tomar extension
+            $extension = $request->file('platilloImagen')->getClientOriginalExtension();
 
-        //Nombre del archivo con extension, nombre unico para la base de datos
-        $finalFileName = $fileName . '_' . time() . '.' . $extension;
-
-        $path = $request->file('platilloImagen')->storeAs('/photos/' . $request->input('id'), $finalFileName);
+            //Nombre del archivo con extension, nombre unico para la base de datos
+            $finalFileName = $fileName . '_' . time() . '.' . $extension;
+        }
+        $path = $request->file('platilloImagen')->storeAs('photos/' . $request->input('id'), $finalFileName);
         request()->validate(Menu::$rules);
 
         $menu = new menu;
@@ -169,6 +185,25 @@ class MenuController extends Controller
         $menu->platilloStatus = $request->boolean('platilloStatus');
         if ($request->hasFile('platilloImagen')) {
             $menu->platilloImagen = $finalFileName;
+        }
+        //$menu->platilloTipo = $request->input('platilloTipo');
+        switch ($menu->platilloTipo) {
+                //"Appetizers", "Main Dishes", "Desserts", "Drinks","Sides"
+            case "0":
+                $menu->platilloTipo = "Appetizers";
+                break;
+            case "1":
+                $menu->platilloTipo = "Main Dishes";
+                break;
+            case "2":
+                $menu->platilloTipo = "Desserts";
+                break;
+            case "3":
+                $menu->platilloTipo = "Drinks";
+                break;
+            case "4":
+                $menu->platilloTipo = "Sides";
+                break;
         }
 
         //$menu->update($request->all());
