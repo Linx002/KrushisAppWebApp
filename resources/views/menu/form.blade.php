@@ -23,7 +23,7 @@
                             {{ Form::file('platilloImagen', $menu->platilloImagen, ['class' => 'form-control' . ($errors->has('platilloImagen') ? ' is-invalid' : '')]) }}
                         <div class="col">
                             <label>Current image</label>
-                            <img src="/photos/{{$menu->id}}/{{$menu->platilloImagen}}" width="150px">
+                            <img src="/photos/img/{{$menu->platilloImagen}}" width="150px">
                         </div>
                     @else
                             {{ Form::file('platilloImagen', $menu->platilloImagen, ['class' => 'form-control' . ($errors->has('platilloImagen') ? ' is-invalid' : '')]) }}

@@ -45,10 +45,10 @@
                                                     <h4 class="card-title">{{ $menu->platilloTitulo }}</h4>
                                                     <p class="card-text">{{ $menu->platilloDescripcion }}</p>
                                                     @if ($menu->platilloOferta != null || $menu->platilloOferta != "0")
-                                                        <p class="btn btn-lg btn-circle btn-danger btn-outline-new-white"><del>${{ $menu->platilloPrecio }}</del></p>
+                                                        <p class="btn btn-lg btn-circle btn-outline-new-white" style="background-color: #f15353;"><del>${{ $menu->platilloPrecio }}</del></p>
                                                         <p class="btn btn-lg btn-circle btn-success btn-outline-new-dark">${{ $menu->platilloOferta }}</p>
                                                     @else
-                                                        <p class="btn btn-lg btn-circle btn-danger btn-outline-new-white">${{ $menu->platilloPrecio }}</p>
+                                                        <p class="btn btn-lg btn-circle btn-outline-new-white" style="background-color: #f15353;">${{ $menu->platilloPrecio }}</p>
                                                     @endif
                                                     @auth
                                                     <form action="{{ route('menu.destroy', $menu->id) }}" method="POST">
@@ -78,10 +78,10 @@
                                                     <h4 class="card-title">{{ $menu->platilloTitulo }}</h4>
                                                     <p class="card-text">{{ $menu->platilloDescripcion }}</p>
                                                     @if ($menu->platilloOferta != null || $menu->platilloOferta != "0")
-                                                        <p class="btn btn-lg btn-circle btn-danger btn-outline-new-white"><del>${{ $menu->platilloPrecio }}</del></p>
+                                                        <p class="btn btn-lg btn-circle btn-outline-new-white" style="background-color: #f15353;"><del>${{ $menu->platilloPrecio }}</del></p>
                                                         <p class="btn btn-lg btn-circle btn-success btn-outline-new-dark">${{ $menu->platilloOferta }}</p>
                                                     @else
-                                                        <p class="btn btn-lg btn-circle btn-danger btn-outline-new-white">${{ $menu->platilloPrecio }}</p>
+                                                        <p class="btn btn-lg btn-circle btn-outline-new-white" style="background-color: #f15353;">${{ $menu->platilloPrecio }}</p>
                                                     @endif
                                                     @auth
                                                     <form action="{{ route('menu.destroy', $menu->id) }}" method="POST">
@@ -111,10 +111,10 @@
                                                     <h4 class="card-title">{{ $menu->platilloTitulo }}</h4>
                                                     <p class="card-text">{{ $menu->platilloDescripcion }}</p>
                                                     @if ($menu->platilloOferta != null || $menu->platilloOferta != "0")
-                                                        <p class="btn btn-lg btn-circle btn-danger btn-outline-new-white"><del>${{ $menu->platilloPrecio }}</del></p>
+                                                        <p class="btn btn-lg btn-circle btn-outline-new-white" style="background-color: #f15353;"><del>${{ $menu->platilloPrecio }}</del></p>
                                                         <p class="btn btn-lg btn-circle btn-success btn-outline-new-dark">${{ $menu->platilloOferta }}</p>
                                                     @else
-                                                        <p class="btn btn-lg btn-circle btn-danger btn-outline-new-white">${{ $menu->platilloPrecio }}</p>
+                                                        <p class="btn btn-lg btn-circle btn-outline-new-white" style="background-color: #f15353;">${{ $menu->platilloPrecio }}</p>
                                                     @endif
                                                     @auth
                                                     <form action="{{ route('menu.destroy', $menu->id) }}" method="POST">
@@ -144,10 +144,10 @@
                                                     <h4 class="card-title">{{ $menu->platilloTitulo }}</h4>
                                                     <p class="card-text">{{ $menu->platilloDescripcion }}</p>
                                                     @if ($menu->platilloOferta != null || $menu->platilloOferta != "0")
-                                                        <p class="btn btn-lg btn-circle btn-danger btn-outline-new-white"><del>${{ $menu->platilloPrecio }}</del></p>
+                                                        <p class="btn btn-lg btn-circle btn-outline-new-white" style="background-color: #f15353;"><del>${{ $menu->platilloPrecio }}</del></p>
                                                         <p class="btn btn-lg btn-circle btn-success btn-outline-new-dark">${{ $menu->platilloOferta }}</p>
                                                     @else
-                                                        <p class="btn btn-lg btn-circle btn-danger btn-outline-new-white">${{ $menu->platilloPrecio }}</p>
+                                                        <p class="btn btn-lg btn-circle btn-outline-new-white" style="background-color: #f15353;">${{ $menu->platilloPrecio }}</p>
                                                     @endif
                                                     @auth
                                                     <form action="{{ route('menu.destroy', $menu->id) }}" method="POST">
@@ -177,10 +177,10 @@
                                                     <h4 class="card-title">{{ $menu->platilloTitulo }}</h4>
                                                     <p class="card-text">{{ $menu->platilloDescripcion }}</p>
                                                     @if ($menu->platilloOferta != null || $menu->platilloOferta != "0")
-                                                        <p class="btn btn-lg btn-circle btn-danger btn-outline-new-white"><del>${{ $menu->platilloPrecio }}</del></p>
+                                                        <p class="btn btn-lg btn-circle btn-outline-new-white" style="background-color: #f15353;"><del>${{ $menu->platilloPrecio }}</del></p>
                                                         <p class="btn btn-lg btn-circle btn-success btn-outline-new-dark">${{ $menu->platilloOferta }}</p>
                                                     @else
-                                                        <p class="btn btn-lg btn-circle btn-danger btn-outline-new-white">${{ $menu->platilloPrecio }}</p>
+                                                        <p class="btn btn-lg btn-circle btn-outline-new-white" style="background-color: #f15353;">${{ $menu->platilloPrecio }}</p>
                                                     @endif
                                                     @auth
                                                     <form action="{{ route('menu.destroy', $menu->id) }}" method="POST">
