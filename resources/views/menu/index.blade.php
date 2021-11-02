@@ -40,7 +40,7 @@
                                     @foreach ($menus as $menu)
                                         @if($menu->platilloTipo == "Appetizers")
                                             <div class="card" style="max-width: 30%">
-                                                <img class="card-img-top" src="/photos/{{$menu->id}}/{{$menu->platilloImagen}}" alt="Gallery Images">
+                                                <img class="card-img-top" src="photos/img/{{$menu->platilloImagen}}" alt="Gallery Images">
                                                 <div class="card-body">
                                                     <h4 class="card-title">{{ $menu->platilloTitulo }}</h4>
                                                     <p class="card-text">{{ $menu->platilloDescripcion }}</p>
@@ -73,7 +73,7 @@
                                     @foreach ($menus as $menu)
                                         @if($menu->platilloTipo == "Main Dishes")
                                             <div class="card" style="max-width: 30%">
-                                                <img class="card-img-top" src="/photos/{{$menu->id}}/{{$menu->platilloImagen}}" alt="Gallery Images">
+                                                <img class="card-img-top" src="photos/img/{{$menu->platilloImagen}}" alt="Gallery Images">
                                                 <div class="card-body">
                                                     <h4 class="card-title">{{ $menu->platilloTitulo }}</h4>
                                                     <p class="card-text">{{ $menu->platilloDescripcion }}</p>
@@ -106,7 +106,7 @@
                                     @foreach ($menus as $menu)
                                         @if($menu->platilloTipo == "Desserts")
                                             <div class="card" style="max-width: 30%">
-                                                <img class="card-img-top" src="/photos/{{$menu->id}}/{{$menu->platilloImagen}}" alt="Gallery Images">
+                                                <img class="card-img-top" src="photos/img/{{$menu->platilloImagen}}" alt="Gallery Images">
                                                 <div class="card-body">
                                                     <h4 class="card-title">{{ $menu->platilloTitulo }}</h4>
                                                     <p class="card-text">{{ $menu->platilloDescripcion }}</p>
@@ -139,7 +139,40 @@
                                     @foreach ($menus as $menu)
                                         @if($menu->platilloTipo == "Drinks")
                                             <div class="card" style="max-width: 30%">
-                                                <img class="card-img-top" src="/photos/{{$menu->id}}/{{$menu->platilloImagen}}" alt="Gallery Images">
+                                                <img class="card-img-top" src="photos/img/{{$menu->platilloImagen}}" alt="Gallery Images">
+                                                <div class="card-body">
+                                                    <h4 class="card-title">{{ $menu->platilloTitulo }}</h4>
+                                                    <p class="card-text">{{ $menu->platilloDescripcion }}</p>
+                                                    @if ($menu->platilloOferta != null || $menu->platilloOferta != "0")
+                                                        <p class="btn btn-lg btn-circle btn-danger btn-outline-new-white"><del>${{ $menu->platilloPrecio }}</del></p>
+                                                        <p class="btn btn-lg btn-circle btn-success btn-outline-new-dark">${{ $menu->platilloOferta }}</p>
+                                                    @else
+                                                        <p class="btn btn-lg btn-circle btn-danger btn-outline-new-white">${{ $menu->platilloPrecio }}</p>
+                                                    @endif
+                                                    @auth
+                                                    <form action="{{ route('menu.destroy', $menu->id) }}" method="POST">
+                                                        <a class="btn btn-sm btn-success" href="{{ route('menu.edit', $menu->id) }}"><i class="fa fa-fw fa-edit"></i>Edit</a>
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i>Delete</button>
+                                                    </form>
+                                                    @endauth
+                                                </div> {{-- card-body --}}
+                                            </div> {{-- card --}}
+                                        @endif
+                                    @endforeach
+                                </div>{{-- card-deck --}}
+                            </details>
+                        </section>
+                        <section>{{--SIDES--}}
+                            <details>
+                                <summary>Sides</summary>
+                                    <br>
+                                    <div class="card-deck">
+                                    @foreach ($menus as $menu)
+                                        @if($menu->platilloTipo == "Sides")
+                                            <div class="card" style="max-width: 30%">
+                                                <img class="card-img-top" src="photos/img/{{$menu->platilloImagen}}" alt="Gallery Images">
                                                 <div class="card-body">
                                                     <h4 class="card-title">{{ $menu->platilloTitulo }}</h4>
                                                     <p class="card-text">{{ $menu->platilloDescripcion }}</p>

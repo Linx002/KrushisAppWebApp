@@ -1,5 +1,14 @@
 <div class="box box-info padding-1">
     <div class="box-body">
+        @if (!$errors->isEmpty())
+        <p>{!! $errors->first('platilloTitulo', '<div class="invalid-feedback">:message</div>') !!}</p>
+        <p>{!! $errors->first('platilloImagen', '<div class="invalid-feedback">:message</div>') !!}</p>
+        <p>{!! $errors->first('platilloDescripcion', '<div class="invalid-feedback">:message</div>') !!}</p>
+        <p>{!! $errors->first('platilloPrecio', '<div class="invalid-feedback">:message</div>') !!}</p>
+        <p>{!! $errors->first('platilloOferta', '<div class="invalid-feedback">:message</div>') !!}</p>
+        <p>{!! $errors->first('platilloTipo', '<div class="invalid-feedback">:message</div>') !!}</p>
+        <p>{!! $errors->first('platilloStatus', '<div class="invalid-feedback">:message</div>') !!}</p>
+        @endif
 
         <div class="form-group">
             {{ Form::label('Dish Name') }}
@@ -49,15 +58,15 @@
             </div>
             <div class="col col-lg-4">
                 {{ Form::label('Dish availability') }}
-                <input type="checkbox" name="platilloStatus" id="platilloStatus" @php
+                <input type="checkbox" name="platilloStatus" id="platilloStatus" value="1" @php
                     if ($menu->platilloStatus == '1') {
                         echo 'checked';
                     }
-                @endphp value=true>
+                @endphp>
             </div>
         </div>
     </div>
     <div class="box-footer mt20">
-        <button type="submit" class="btn btn-primary">Guardar</button>
+        <button type="submit" class="btn btn-primary">Save</button>
     </div>
 </div>

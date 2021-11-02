@@ -26,7 +26,7 @@ class Menu extends Model
 
     static $rules = [
         'platilloTitulo' => 'required|max:100',
-        'platilloImagen' => 'required|image|max:250',
+        'platilloImagen' => 'required|image|max:2500',
         'platilloDescripcion' => 'required|max:250',
         'platilloPrecio' => 'required|numeric',
         'platilloOferta' => 'nullable|numeric|lt:platilloPrecio',

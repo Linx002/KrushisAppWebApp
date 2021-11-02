@@ -26,21 +26,21 @@
                         <div class="row"> </div>--}}
 
 
-                        <div class="col-6">
-                            <div class="row">
-                                <label for="name">Name:</label>
-                                <input type="text" id="name" class="text">
+                        <div class="col-md-6">
+                            <div class="row mb-3">
+                                <label class="form-label" for="name" style="padding-left: 25px">Name:</label>
+                                <input type="text" id="name" class="form-control">
                             </div>
-                            <div class="row">
-                                <label for="email">Email:</label>
-                                <input type="email" id="email" class="email">
+                            <div class="row mb-3">
+                                <label class="form-label" for="email" style="padding-left: 25px">Email:</label>
+                                <input type="email" id="email" class="form-control">
                             </div>
-                            <div class="row">
-                                <label for="phone">Phone:</label>
-                                <input id="phone" class="text">
+                            <div class="row mb-3">
+                                <label class="form-label" for="phone" style="padding-left: 25px">Phone:</label>
+                                <input id="phone" class="form-control">
                             </div>
-                            <div class="row">
-                                <label for="reason">Reason:</label>
+                            <div class="row mb-3">
+                                <label class="form-label" for="reason" style="padding-left: 25px">Reason:</label>
                                 <select id="phone" name="reason">
                                     <option value="0">Suggestions and complaints</option>
                                     <option value="1">Congratulations</option>
@@ -49,9 +49,9 @@
                                 </select>
                             </div>
                         </div>{{-- col (COLUMNA IZQ)--}}
-                        <div class="col">
-                            <label for="nessage">Message</label>
-                            <textarea id="message" name="message" class="text area" placeholder="Message" rows="8" aria-label="Write any message in this field"></textarea>
+                        <div class="col-md-6" style="align-items:center; display: flex">
+                            <label class="form-label" for="nessage" style="text-align:center">Message</label>
+                            <textarea id="message" name="message" class="form-control" placeholder="Message" rows="8" style="text-align:center" aria-label="Write any message in this field"></textarea>
                         </div> {{-- col (COLUMNA DERECHA)--}}
                     </div>
                 </form>

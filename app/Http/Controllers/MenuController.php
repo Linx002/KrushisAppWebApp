@@ -52,6 +52,8 @@ class MenuController extends Controller
     {
         request()->validate(Menu::$rules);
 
+        $menu = new menu;
+
         $fileNameWithExt = $request->file('platilloImagen')->getClientOriginalName();
 
         //tomar solo el nombre del archivo
@@ -63,9 +65,7 @@ class MenuController extends Controller
 
         //Nombre del archivo con extension, nombre unico para la base de datos
         $finalFileName = $fileName . '_' . time() . '.' . $extension;
-        $path = $request->file('platilloImagen')->storeAs('photos/' . $request->input('id'), $finalFileName);
-
-        $menu = new menu;
+        $path = $request->file('platilloImagen')->storeAs('photos/img', $finalFileName);
 
         $menu->platilloTitulo = $request->input('platilloTitulo');
         $menu->platilloDescripcion = $request->input('platilloDescripcion');
@@ -77,7 +77,7 @@ class MenuController extends Controller
         }
 
         // $menu->platilloStatus = $request->boolean('platilloStatus');
-        if ($request->input('platilloStatus') == "true") {
+        if ($request->input('platilloStatus') == "true" || $request->input('platilloStatus') == "1" || $request->input('platilloStatus') == TRUE) {
             $menu->platilloStatus = "1";
         } else {
             $menu->platilloStatus = "0";
@@ -154,6 +154,10 @@ class MenuController extends Controller
      */
     public function update(Request $request, Menu $menu)
     {
+        request()->validate(Menu::$rules);
+
+        $menu = new menu;
+
         if ($request->hasFile('platilloImagen') == null) {
             $finalFileName = $menu->platilloImagen;
         } else {
@@ -169,10 +173,7 @@ class MenuController extends Controller
             //Nombre del archivo con extension, nombre unico para la base de datos
             $finalFileName = $fileName . '_' . time() . '.' . $extension;
         }
-        $path = $request->file('platilloImagen')->storeAs('photos/' . $request->input('id'), $finalFileName);
-        request()->validate(Menu::$rules);
-
-        $menu = new menu;
+        $path = $request->file('platilloImagen')->storeAs('public/photos/img/', $finalFileName);
 
         $menu->platilloTitulo = $request->input('platilloTitulo');
         $menu->platilloDescripcion = $request->input('platilloDescripcion');
