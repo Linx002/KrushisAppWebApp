@@ -63,8 +63,14 @@
                         <li class="nav-item"><a class="nav-link" href="/menu">Menu</a></li>
                         <li class="nav-item"><a class="nav-link" href="/news">News</a></li>
                         <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
-                        {{-- <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li> --}}
-
+                        @auth
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                            </form>
+                            <li class="nav-item"><a class="nav-link" href="{{ route('logout') }}"                                        onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">
+                                            {{ __('Logout') }}</a></li>
+                        @endauth
                     </ul>
                 </div>
             </div>
@@ -110,7 +116,8 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        <p class="company-name">All Rights Reserved. &copy; 2021 <a href="#">Krushis Indian Bistro</a></p>
+                        <p class="company-name"><a href="{{ route('register') }}">All Rights Reserved. </a>&copy; <a href="/login">2021 Krushis Indian Bistro</a></p>
+
                     </div>
                 </div>
             </div>
